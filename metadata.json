@@ -1,0 +1,6 @@
+{
+  "name": "Binary King",
+  "description": "AI Trading Signal Bot featuring Real-time Technical Pattern Analysis and Indicator Tracking.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

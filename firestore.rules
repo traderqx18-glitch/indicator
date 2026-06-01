@@ -1,0 +1,29 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Blanket default denies
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Licenses collection
+    match /licenses/{licenseKey} {
+      allow get, list, write: if true; // Public access as client-side licensing check occurs without Auth
+    }
+
+    // Patterns collection
+    match /patterns/{pair_timeframe}/hashes/{patternHash} {
+      allow read, write: if true;
+    }
+
+    // HistoricalData collection
+    match /historicalData/{pair} {
+      allow read, write: if true;
+    }
+
+    // AdminConfig collection
+    match /adminConfig/config {
+      allow read, write: if true;
+    }
+  }
+}

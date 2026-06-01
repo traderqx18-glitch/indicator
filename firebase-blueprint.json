@@ -1,0 +1,73 @@
+{
+  "entities": {
+    "License": {
+      "title": "License",
+      "description": "User license key and active devices.",
+      "type": "object",
+      "properties": {
+        "isActive": { "type": "boolean" },
+        "deviceLimit": { "type": "number" },
+        "devices": {
+          "type": "array",
+          "description": "List of active device fingerprints."
+        },
+        "createdAt": { "type": "string" },
+        "expiryDate": { "type": "string" }
+      },
+      "required": ["isActive", "deviceLimit", "devices", "createdAt"]
+    },
+    "Pattern": {
+      "title": "Pattern",
+      "description": "Candlestick pattern statistics.",
+      "type": "object",
+      "properties": {
+        "patternHash": { "type": "string" },
+        "occurrences": { "type": "number" },
+        "successCount": { "type": "number" },
+        "failCount": { "type": "number" },
+        "successRate": { "type": "number" },
+        "predictedDirection": { "type": "string" },
+        "lastSeen": { "type": "string" }
+      },
+      "required": ["occurrences", "successCount", "failCount", "successRate", "lastSeen"]
+    },
+    "HistoricalData": {
+      "title": "HistoricalData",
+      "description": "Historical candle state metadata.",
+      "type": "object",
+      "properties": {
+        "lastFetched": { "type": "string" },
+        "totalCandles": { "type": "number" }
+      },
+      "required": ["lastFetched", "totalCandles"]
+    },
+    "AdminConfig": {
+      "title": "AdminConfig",
+      "description": "Global administration parameters.",
+      "type": "object",
+      "properties": {
+        "masterKey": { "type": "string" },
+        "globalDeviceLimit": { "type": "number" }
+      },
+      "required": ["masterKey"]
+    }
+  },
+  "firestore": {
+    "licenses/{licenseKey}": {
+      "schema": "License",
+      "description": "User license validation state."
+    },
+    "patterns/{pair_timeframe}/hashes/{patternHash}": {
+      "schema": "Pattern",
+      "description": "Compiled patterns database from Twelve Data."
+    },
+    "historicalData/{pair}": {
+      "schema": "HistoricalData",
+      "description": "Tracks historical candle sync status per Forex pair."
+    },
+    "adminConfig/config": {
+      "schema": "AdminConfig",
+      "description": "Contains master key and default limits."
+    }
+  }
+}
