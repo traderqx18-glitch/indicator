@@ -208,9 +208,18 @@ export default function App() {
     try {
       const endpoint = `/api/twelve-data?symbol=${encodeURIComponent(activeSymbol)}&interval=${apiInterval}&outputsize=250`;
       const res = await fetch(endpoint);
+      
+      // Check if response is JSON
+      const contentType = res.headers.get("content-type");
+      
       if (!res.ok) {
-        const errorBody = await res.json();
-        throw new Error(errorBody?.error || `Received HTTP ${res.status} from API`);
+        if (contentType && contentType.includes("application/json")) {
+           const errorBody = await res.json();
+           throw new Error(errorBody?.error || `Received HTTP ${res.status} from API`);
+        } else {
+           const errorText = await res.text();
+           throw new Error(`API Error ${res.status}: ${errorText.substring(0, 100)}... Please ensure the backend server is running.`);
+        }
       }
 
       const data = await res.json();
