@@ -489,7 +489,7 @@ export default function App() {
             <div className="inline-flex items-center justify-center p-3 bg-emerald-500/10 rounded-full text-[#00ff88] mb-3 border border-emerald-500/20 shadow-[0_0_15px_rgba(0,255,136,0.1)]">
               <Shield className="w-10 h-10 animate-pulse" />
             </div>
-            <h1 id="brand-logo" className="text-3xl font-black tracking-wider text-emerald-400 mb-2">BINARY KING</h1>
+            <h1 id="brand-logo" className="text-3xl font-black tracking-wider text-emerald-400 mb-2">TRADING TERMINAL</h1>
             <p className="text-xs text-gray-500 uppercase tracking-widest">Enterprise Trading Terminal</p>
           </div>
 
@@ -567,7 +567,7 @@ export default function App() {
         <header className="bg-[#111827] border-b border-[#1f2937] px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
             <Lock className="w-5 h-5 text-emerald-400 animate-pulse" />
-            <h1 className="text-lg font-black text-[#00ff88] uppercase tracking-widest">BINARY KING ADMIN HARNESS</h1>
+            <h1 className="text-lg font-black text-[#00ff88] uppercase tracking-widest">ADMIN HARNESS</h1>
           </div>
           <button
             id="admin-exit-btn"
@@ -813,7 +813,7 @@ export default function App() {
       <header id="navbar" className="bg-[#111827] border-b border-[#1f2937] px-6 py-4 flex items-center justify-between shadow-md">
         <div className="flex items-center gap-3">
           <Activity className="w-6 h-6 text-[#00ff88] animate-pulse" />
-          <span className="font-extrabold tracking-wider text-[#00ff88] text-xl">BINARY KING</span>
+          <span className="font-extrabold tracking-wider text-[#00ff88] text-xl">TRADING TERMINAL</span>
           <span className="bg-emerald-500/10 text-[#00ff88] border border-emerald-500/20 text-[10px] uppercase font-bold tracking-widest px-2 py-0.5 rounded">PRO LEVEL</span>
         </div>
 
